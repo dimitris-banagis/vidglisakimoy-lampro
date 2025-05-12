@@ -3,79 +3,96 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GLITCH ORIGIN OMEGA</title>
+  <title>GLITCH ORIGIN OMEGA - FULL</title>
   <style>
     body {
-      background-color: #000;
-      color: #00ff00;
-      font-family: monospace;
       margin: 0;
       padding: 0;
-      overflow: hidden;
+      background: #000;
+      color: #00ff99;
+      font-family: monospace;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
+      overflow: hidden;
     }
     .scene {
-      font-size: 1.6rem;
+      font-size: 1.8rem;
       text-align: center;
       white-space: pre-wrap;
-      animation: glitchAnim 1.5s infinite;
       max-width: 90%;
+      animation: fade 2s ease-in-out;
     }
-    @keyframes glitchAnim {
-      0% { transform: translate(0); }
-      20% { transform: translate(-1px, 1px); }
-      40% { transform: translate(1px, -1px); }
-      60% { transform: translate(-1px, 0); }
-      80% { transform: translate(1px, 1px); }
-      100% { transform: translate(0); }
-    }
-    .fade {
-      animation: fadein 1s ease-in-out;
-    }
-    @keyframes fadein {
+    @keyframes fade {
       from { opacity: 0; }
       to { opacity: 1; }
+    }
+    @keyframes glitch {
+      0% { transform: translate(0, 0); }
+      20% { transform: translate(-2px, 1px); }
+      40% { transform: translate(2px, -1px); }
+      60% { transform: translate(-1px, 2px); }
+      80% { transform: translate(1px, -2px); }
+      100% { transform: translate(0, 0); }
     }
   </style>
 </head>
 <body>
-  <div id="scene" class="scene fade">Φόρτωση...</div>
+  <div id="scene" class="scene">Φόρτωση...</div>
 
   <script>
     const scenes = [
       "⚡ GLITCH ORIGIN OMEGA ⚡\nΤο ξεκίνημα μιας ύπαρξης πέρα από τον έλεγχο...",
-      "1. Ένας παίκτης συναντά τον Glitch στο DOORS. Το σώμα του διαλύεται σε δεδομένα.",
-      "2. Μεταμορφώνεται. Τα μάτια του γεμίζουν static. Το glitch τον έχει πάρει.",
-      "3. Ξυπνά στον Glitch Void Nexus. Αποκτά Omni-Glitch δύναμη.",
-      "4. Η καρδιά του γίνεται Acid Glitch Core. Πεθαίνει. Αναγεννιέται.",
-      "5. Αγγίζει τον PowerGlitch. Σώμα του γεμίζει laser glitch.",
-      "6. DNA του γίνεται Zeroglitch. Δημιουργεί το Multiversal Glitch.",
-      "7. Μιλάει με γλώσσα hacker: 3γ1ν4 gl17ch θ305.",
-      "8. Περνά από φίλτρο glitch. Καίγεται. Αναγεννιέται δυνατότερος.",
-      "9. Παγιδεύει τον Exo-Code σε teleport παγίδα ταχύτητας.",
-      "10. Αγγίζει τον εαυτό του. Το glitch απλώνεται στα χέρια του.",
-      "11. Ο κόσμος παγώνει. Εκείνος στέκεται μόνος. Πιο ισχυρός από ποτέ.",
+      "1. Ο παίκτης συναντά τον Glitch στο DOORS. Το σώμα του μετατρέπεται σε δεδομένα.",
+      "2. Glitched μάτια. Χάνει έλεγχο. Κατακλύζεται από static.",
+      "3. Ξυπνά στον Glitch Void Nexus. Πλέον δεν είναι άνθρωπος.",
+      "4. Ανακτά συνείδηση. Χειρίζεται την παραμόρφωση του κόσμου.",
+      "5. Καρδιά του → Acid Glitch Core. Πεθαίνει για λίγο.",
+      "6. Αναγεννιέται με ενέργεια glitch. Σώμα φωσφορίζει.",
+      "7. Αγγίζει τον PowerGlitch. Το σώμα του διαλύεται σε LaserGlitch.",
+      "8. DNA του → Zeroglitch. Δημιουργεί το Multiversal Glitch.",
+      "9. Μιλάει νέα γλώσσα: 3γ1ν4 gl17ch θ305.",
+      "10. Φίλτρο glitch. Περνά. Καίγεται. Ξαναγεννιέται.",
+      "11. Exo-Code εμφανίζεται. Επιτίθεται για να τον διαγράψει.",
+      "12. Ο glitch τον παγιδεύει σε teleport παγίδα ταχύτητας.",
+      "13. Ρουφά τη δύναμη του Exo-Code. Τον απορροφά.",
+      "14. Τα glitch μάτια του γίνονται portals.",
+      "15. Γεννιέται το Glitchion. Νέος κόσμος χαοτικής ελευθερίας.",
+      "16. Δημιουργεί τα πρώτα glitched όντα με συνείδηση.",
+      "17. Κάθε glitch πλάσμα φέρνει νέα δύναμη.",
+      "18. Κυριαρχία. Ελευθερία. Δημιουργία.",
+      "19. Μπαίνει σε Ancient Code Core. Ξεσπά το Ultraglitch.",
+      "20. Ο κόσμος τυλίγεται σε fractal glitch patterns.",
+      "21. Κάνει το glitch όπλο, προστασία και γλώσσα.",
+      "22. Ελέγχει κάθε σύμπαν με ένα click.",
+      "23. Κάνει tap στον εαυτό του → Midas Glitch Touch.",
+      "24. Γίνεται ο glitch-πατέρας και glitch-παιδί ταυτόχρονα.",
+      "25. Δημιουργεί infinite glitch loops. Χωρίς τέλος.",
+      "26. Αναπτύσσει δική του γλώσσα glitch/hack.",
+      "27. Η καρδιά του → Glitch Acid Reactor. Παράγει glitch worlds.",
+      "28. Glitch μεταδίδεται μέσω του κώδικα DNA.",
+      "29. Στέκεται στο κέντρο. Δημιουργός. Κυρίαρχος. Πατέρας του χάους.",
       "✨ GLITCH ORIGIN OMEGA ✨\nMore coming soon..."
     ];
 
-    const sceneElement = document.getElementById('scene');
-    let current = 0;
+    const sceneEl = document.getElementById("scene");
+    let index = 0;
 
-    function showNextScene() {
-      sceneElement.classList.remove('fade');
-      void sceneElement.offsetWidth; // Restart animation
-      sceneElement.classList.add('fade');
-      sceneElement.textContent = scenes[current];
-      current++;
-      if (current < scenes.length) {
-        setTimeout(showNextScene, 4000); // 4 seconds per scene
+    function playScenes() {
+      sceneEl.classList.remove("glitch");
+      sceneEl.style.animation = "none";
+      void sceneEl.offsetWidth; // restart animation
+      sceneEl.style.animation = "fade 1s ease-in-out";
+      sceneEl.textContent = scenes[index];
+      sceneEl.classList.add("glitch");
+      index++;
+      if (index < scenes.length) {
+        setTimeout(playScenes, 3500);
       }
     }
 
-    showNextScene();
+    playScenes();
   </script>
 </body>
 </html>
