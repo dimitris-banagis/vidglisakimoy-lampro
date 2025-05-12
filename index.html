@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GLITCH ORIGIN OMEGA</title>
+  <style>
+    body {
+      background-color: black;
+      color: lime;
+      font-family: monospace;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    .container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      width: 90%;
+    }
+    .glitch {
+      font-size: 2rem;
+      white-space: pre-wrap;
+      animation: glitchAnim 2s steps(5, end) infinite;
+    }
+    @keyframes glitchAnim {
+      0% { transform: translate(0); }
+      20% { transform: translate(-2px, 2px); }
+      40% { transform: translate(2px, -2px); }
+      60% { transform: translate(-1px, 1px); }
+      80% { transform: translate(1px, -1px); }
+      100% { transform: translate(0); }
+    }
+    .btns {
+      margin-top: 20px;
+    }
+    button {
+      background: transparent;
+      border: 1px solid lime;
+      color: lime;
+      padding: 10px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="glitch" id="sceneText">Φόρτωση...</div>
+    <div class="btns">
+      <button onclick="prevScene()">Προηγούμενο</button>
+      <button onclick="nextScene()">Επόμενο</button>
+    </div>
+  </div>
+
+  <script>
+    const scenes = [
+      "1. Ένας παίκτης συναντά τον Glitch στο DOORS. Το σώμα του διαλύεται σε δεδομένα.",
+      "2. Μεταμορφώνεται. Τα μάτια του γεμίζουν static. Το glitch τον έχει πάρει.",
+      "3. Ξυπνά στον Glitch Void Nexus. Αποκτά Omni-Glitch δύναμη.",
+      "4. Η καρδιά του γίνεται Acid Glitch Core. Πεθαίνει. Αναγεννιέται.",
+      "5. Αγγίζει τον PowerGlitch. Σώμα του γεμίζει laser glitch.",
+      "6. DNA του γίνεται Zeroglitch. Δημιουργεί το Multiversal Glitch.",
+      "7. Μιλάει με γλώσσα hacker: 3γ1ν4 gl17ch θ305.",
+      "8. Περνά από φίλτρο glitch. Καίγεται. Αναγεννιέται δυνατότερος.",
+      "9. Παγιδεύει τον Exo-Code σε teleport παγίδα ταχύτητας.",
+      "10. Αγγίζει τον εαυτό του. Το glitch απλώνεται στα χέρια του.",
+      "11. Ο κόσμος παγώνει. Εκείνος στέκεται μόνος. Πιο ισχυρός από ποτέ.",
+      "GLITCH ORIGIN OMEGA\nMore Coming Soon..."
+    ];
+
+    let currentScene = 0;
+    const sceneText = document.getElementById("sceneText");
+
+    function showScene(index) {
+      sceneText.textContent = scenes[index];
+    }
+
+    function nextScene() {
+      if (currentScene < scenes.length - 1) {
+        currentScene++;
+        showScene(currentScene);
+      }
+    }
+
+    function prevScene() {
+      if (currentScene > 0) {
+        currentScene--;
+        showScene(currentScene);
+      }
+    }
+
+    showScene(currentScene);
+  </script>
+</body>
+</html>
