@@ -1,63 +1,52 @@
 <!DOCTYPE html>
 <html lang="el">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GLITCH ORIGIN OMEGA</title>
   <style>
     body {
-      background-color: black;
-      color: lime;
+      background-color: #000;
+      color: #00ff00;
       font-family: monospace;
       margin: 0;
       padding: 0;
       overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
     }
-    .container {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+    .scene {
+      font-size: 1.6rem;
       text-align: center;
-      width: 90%;
-    }
-    .glitch {
-      font-size: 2rem;
       white-space: pre-wrap;
-      animation: glitchAnim 2s steps(5, end) infinite;
+      animation: glitchAnim 1.5s infinite;
+      max-width: 90%;
     }
     @keyframes glitchAnim {
       0% { transform: translate(0); }
-      20% { transform: translate(-2px, 2px); }
-      40% { transform: translate(2px, -2px); }
-      60% { transform: translate(-1px, 1px); }
-      80% { transform: translate(1px, -1px); }
+      20% { transform: translate(-1px, 1px); }
+      40% { transform: translate(1px, -1px); }
+      60% { transform: translate(-1px, 0); }
+      80% { transform: translate(1px, 1px); }
       100% { transform: translate(0); }
     }
-    .btns {
-      margin-top: 20px;
+    .fade {
+      animation: fadein 1s ease-in-out;
     }
-    button {
-      background: transparent;
-      border: 1px solid lime;
-      color: lime;
-      padding: 10px;
-      font-size: 1rem;
-      cursor: pointer;
+    @keyframes fadein {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="glitch" id="sceneText">Φόρτωση...</div>
-    <div class="btns">
-      <button onclick="prevScene()">Προηγούμενο</button>
-      <button onclick="nextScene()">Επόμενο</button>
-    </div>
-  </div>
+  <div id="scene" class="scene fade">Φόρτωση...</div>
 
   <script>
     const scenes = [
+      "⚡ GLITCH ORIGIN OMEGA ⚡\nΤο ξεκίνημα μιας ύπαρξης πέρα από τον έλεγχο...",
       "1. Ένας παίκτης συναντά τον Glitch στο DOORS. Το σώμα του διαλύεται σε δεδομένα.",
       "2. Μεταμορφώνεται. Τα μάτια του γεμίζουν static. Το glitch τον έχει πάρει.",
       "3. Ξυπνά στον Glitch Void Nexus. Αποκτά Omni-Glitch δύναμη.",
@@ -69,31 +58,24 @@
       "9. Παγιδεύει τον Exo-Code σε teleport παγίδα ταχύτητας.",
       "10. Αγγίζει τον εαυτό του. Το glitch απλώνεται στα χέρια του.",
       "11. Ο κόσμος παγώνει. Εκείνος στέκεται μόνος. Πιο ισχυρός από ποτέ.",
-      "GLITCH ORIGIN OMEGA\nMore Coming Soon..."
+      "✨ GLITCH ORIGIN OMEGA ✨\nMore coming soon..."
     ];
 
-    let currentScene = 0;
-    const sceneText = document.getElementById("sceneText");
+    const sceneElement = document.getElementById('scene');
+    let current = 0;
 
-    function showScene(index) {
-      sceneText.textContent = scenes[index];
-    }
-
-    function nextScene() {
-      if (currentScene < scenes.length - 1) {
-        currentScene++;
-        showScene(currentScene);
+    function showNextScene() {
+      sceneElement.classList.remove('fade');
+      void sceneElement.offsetWidth; // Restart animation
+      sceneElement.classList.add('fade');
+      sceneElement.textContent = scenes[current];
+      current++;
+      if (current < scenes.length) {
+        setTimeout(showNextScene, 4000); // 4 seconds per scene
       }
     }
 
-    function prevScene() {
-      if (currentScene > 0) {
-        currentScene--;
-        showScene(currentScene);
-      }
-    }
-
-    showScene(currentScene);
+    showNextScene();
   </script>
 </body>
 </html>
